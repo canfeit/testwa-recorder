@@ -2,7 +2,7 @@
   "name": "gatsby-starter-default",
   "private": true,
   "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "homepage": "https://github.com/canfeit/testwa-recorder#readme",
   "keywords": [
@@ -40,7 +40,8 @@
     "start": "concurrently \"npm run front\" \"npm run server\" \"npm run proxy\" \"wait-on http://localhost:8000 && npm run desktop\"",
     "dir": "trash .cache dist public&&gatsby build&&npm run build -- -c.asar=false",
     "build": "build --dir",
-    "release": "release-it -n --dry-run&&gatsby build&&npm run build:all",
+    "release": "release-it -n",
+    "release2": "release-it -n --dry-run&&gatsby build&&npm run build:all",
     "build:all": "build -w --publish always&&build -ml&&npm run format&&yarn upgrade -L&&yarn",
     "proxy": "node dev-proxy",
     "front": "gatsby develop",
@@ -48,9 +49,7 @@
     "desktop": "electron .",
     "postinstall": "build install-app-deps",
     "format": "prettier --write \"src/**/*.js\"",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
-    "changelog": "npx auto-changelog --stdout --commit-limit false -u --template ./changelog.hbs",
-    "beforeStage": "npx auto-changelog"
+    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
   "dependencies": {
     "electron-updater": "^4.0.6",
@@ -59,6 +58,7 @@
   },
   "devDependencies": {
     "antd": "^3.12.4",
+    "auto-changelog": "^1.11.0",
     "babel-plugin-import": "^1.11.0",
     "concurrently": "^4.1.0",
     "cross-env": "^5.2.0",
@@ -83,6 +83,9 @@
     "wait-on": "^1.1.0"
   },
   "release-it": {
+    "scripts": {
+      "beforeStage": "auto-changelog"
+    },
     "github": {
       "release": true,
       "draft": true,
