@@ -2,7 +2,7 @@
   "name": "gatsby-starter-default",
   "private": true,
   "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "homepage": "https://github.com/canfeit/testwa-recorder#readme",
   "keywords": [
@@ -61,6 +61,7 @@
     "auto-changelog": "^1.11.0",
     "babel-plugin-import": "^1.11.0",
     "concurrently": "^4.1.0",
+    "conventional-changelog-cli": "^2.0.12",
     "cross-env": "^5.2.0",
     "dva-core": "next",
     "dva-loading": "next",
@@ -83,11 +84,13 @@
     "wait-on": "^1.1.0"
   },
   "release-it": {
+    "increment": "conventional:angular",
     "scripts": {
-      "beforeStage": "auto-changelog"
+      "beforeStage": "npx conventional-changelog -p angular -i CHANGELOG.md -s"
     },
     "github": {
       "release": true,
+      "draft": true,
       "tokenRef": "GH_TOKEN"
     },
     "npm": {
