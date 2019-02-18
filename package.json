@@ -40,7 +40,7 @@
     "start": "concurrently \"npm run front\" \"npm run server\" \"npm run proxy\" \"wait-on http://localhost:8000 && npm run desktop\"",
     "dir": "trash .cache dist public&&gatsby build&&npm run build -- -c.asar=false",
     "build": "build --dir",
-    "release": "release-it&&gatsby build&&npm run build:all",
+    "release": "release-it -n --dry-run&&gatsby build&&npm run build:all",
     "build:all": "build -w --publish always&&build -ml&&npm run format&&yarn upgrade -L&&yarn",
     "proxy": "node dev-proxy",
     "front": "gatsby develop",
@@ -48,7 +48,9 @@
     "desktop": "electron .",
     "postinstall": "build install-app-deps",
     "format": "prettier --write \"src/**/*.js\"",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
+    "changelog": "npx auto-changelog --stdout --commit-limit false -u --template ./changelog.hbs",
+    "beforeStage": "npx auto-changelog"
   },
   "dependencies": {
     "electron-updater": "^4.0.6",
