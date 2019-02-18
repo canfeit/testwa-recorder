@@ -40,7 +40,7 @@
     "start": "concurrently \"npm run front\" \"npm run server\" \"npm run proxy\" \"wait-on http://localhost:8000 && npm run desktop\"",
     "dir": "trash .cache dist public&&gatsby build&&npm run build -- -c.asar=false",
     "build": "build --dir",
-    "release": "release",
+    "release": "release-it",
     "build:all": "build -w --publish always&&build -ml&&npm run format&&yarn upgrade -L&&yarn",
     "proxy": "node dev-proxy",
     "front": "gatsby develop",
@@ -73,10 +73,16 @@
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-redux": "^6.0.0",
-    "release": "^6.0.0",
+    "release": "4.0.2",
+    "release-it": "^10.1.0",
     "request": "^2.88.0",
     "standard-version": "^4.4.0",
     "trash-cli": "^1.4.0",
     "wait-on": "^1.1.0"
+  },
+  "release-it": {
+    "github": {
+      "release": true
+    }
   }
 }
