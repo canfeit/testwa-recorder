@@ -2,7 +2,7 @@
   "name": "gatsby-starter-default",
   "private": true,
   "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "homepage": "https://github.com/canfeit/testwa-recorder#readme",
   "keywords": [
@@ -20,6 +20,7 @@
     "productName": "TestwaGen",
     "appId": "com.testwa.desktop",
     "copyright": "Copyright © 2019 testwa",
+    "releaseType": "release",
     "mac": {
       "target": "dmg"
     },
@@ -40,7 +41,7 @@
     "start": "concurrently \"npm run front\" \"npm run server\" \"npm run proxy\" \"wait-on http://localhost:8000 && npm run desktop\"",
     "dir": "trash .cache dist public&&gatsby build&&npm run build -- -c.asar=false",
     "build": "build --dir",
-    "release": "release-it --no-git --github.release=\"false\"&&release-it",
+    "release": "release-it&&gatsby build&&npm run build:all",
     "build:all": "build -w --publish always&&build -ml&&npm run format&&yarn upgrade -L&&yarn",
     "proxy": "node dev-proxy",
     "front": "gatsby develop",
@@ -83,6 +84,7 @@
   "release-it": {
     "github": {
       "release": true,
+      "draft": true,
       "releaseName": "${version}",
       "tokenRef": "GH_TOKEN"
     },
