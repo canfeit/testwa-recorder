@@ -40,7 +40,7 @@
     "start": "concurrently \"npm run front\" \"npm run server\" \"npm run proxy\" \"wait-on http://localhost:8000 && npm run desktop\"",
     "dir": "trash .cache dist public&&gatsby build&&npm run build -- -c.asar=false",
     "build": "build --dir",
-    "release": "standard-version&&release&&gatsby build&&npm run build:all",
+    "release": "release",
     "build:all": "build -w --publish always&&build -ml&&npm run format&&yarn upgrade -L&&yarn",
     "proxy": "node dev-proxy",
     "front": "gatsby develop",
