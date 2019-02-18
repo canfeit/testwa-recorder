@@ -58,3 +58,9 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
 
 12. **`README.md`**: A text file containing useful reference information about your project.
+
+## Bug
+
+1. `child "id" fails because ["id" must be a string]`
+
+- node_modules/gatsby-source-strapi/fetch.js 文件中的 return clean(item);前添加 item.id=item.id.toString();

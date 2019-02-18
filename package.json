@@ -4,39 +4,79 @@
   "description": "A simple starter to get up and developing quickly with Gatsby",
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
-  "dependencies": {
-    "gatsby": "^2.0.76",
-    "gatsby-image": "^2.0.20",
-    "gatsby-plugin-manifest": "^2.0.9",
-    "gatsby-plugin-offline": "^2.0.16",
-    "gatsby-plugin-react-helmet": "^3.0.2",
-    "gatsby-plugin-sharp": "^2.0.14",
-    "gatsby-source-filesystem": "^2.0.8",
-    "gatsby-transformer-sharp": "^2.1.8",
-    "prop-types": "^15.6.2",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "react-helmet": "^5.2.0"
-  },
+  "homepage": "https://github.com/canfeit/testwa#readme",
   "keywords": [
     "gatsby"
   ],
   "license": "MIT",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "start": "npm run develop",
-    "format": "prettier --write \"src/**/*.js\"",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
-  },
-  "devDependencies": {
-    "prettier": "^1.15.2"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/gatsbyjs/gatsby-starter-default"
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "build": {
+    "productName": "TestwaGen",
+    "appId": "com.testwa.desktop",
+    "copyright": "Copyright © 2019 testwa",
+    "mac": {
+      "target": "dmg"
+    },
+    "files": [
+      "common",
+      "main",
+      "public",
+      "server",
+      "package.json",
+      "!**/{LICENSE,LICENCE,license,*LICENSE,LICENSE*,CHANGELOG*,README*,AUTHORS,.gitmodules,.vscode,.yarnclean}"
+    ],
+    "extraResources": [
+      "static"
+    ]
+  },
+  "main": "main/index.js",
+  "scripts": {
+    "start": "concurrently \"npm run front\" \"npm run server\" \"npm run proxy\" \"wait-on http://localhost:8000 && npm run desktop\"",
+    "dir": "trash .cache dist public&&gatsby build&&npm run build -- -c.asar=false",
+    "build": "build --dir",
+    "release": "standard-version&&gatsby build&&npm run build:all",
+    "build:all": "build -w --publish always&&build -ml&&npm run format&&yarn upgrade -L&&yarn",
+    "proxy": "node dev-proxy",
+    "front": "gatsby develop",
+    "server": "cd server&&cross-env testwa_port=7000 nodemon --experimental-modules .",
+    "desktop": "electron .",
+    "postinstall": "build install-app-deps",
+    "format": "prettier --write \"src/**/*.js\"",
+    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+  },
+  "dependencies": {
+    "electron-updater": "^4.0.6",
+    "serve-handler": "^5.0.7",
+    "source-map-support": "^0.5.10"
+  },
+  "devDependencies": {
+    "antd": "^3.12.4",
+    "babel-plugin-import": "^1.11.0",
+    "concurrently": "^4.1.0",
+    "cross-env": "^5.2.0",
+    "dva-core": "next",
+    "dva-loading": "next",
+    "electron": "^4.0.2",
+    "electron-builder": "^20.38.5",
+    "electron-devtools-installer": "^2.2.4",
+    "gatsby": "^2.0.93",
+    "http-proxy": "^1.17.0",
+    "nodemon": "^1.18.9",
+    "prettier": "^1.16.1",
+    "prop-types": "^15.6.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-redux": "^6.0.0",
+    "release": "^6.0.0",
+    "request": "^2.88.0",
+    "standard-version": "^4.4.0",
+    "trash-cli": "^1.4.0",
+    "wait-on": "^1.1.0"
   }
 }

@@ -69,3 +69,6 @@ public
 
 .pnp/
 .pnp.js
+
+# electron
+dist
