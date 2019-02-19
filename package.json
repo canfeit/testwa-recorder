@@ -1,12 +1,13 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "testwa-recorder",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Testwa recorder",
   "version": "0.2.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "canfei <canfeit@qq.com>",
   "homepage": "https://github.com/canfeit/testwa-recorder#readme",
   "keywords": [
-    "gatsby"
+    "test",
+    "appium"
   ],
   "license": "MIT",
   "repository": {
@@ -40,8 +41,7 @@
     "start": "concurrently \"npm run front\" \"npm run server\" \"npm run proxy\" \"wait-on http://localhost:8000 && npm run desktop\"",
     "dir": "trash .cache dist public&&gatsby build&&npm run build -- -c.asar=false",
     "build": "build --dir",
-    "release": "release-it -n",
-    "release2": "release-it -n&&gatsby build&&npm run build:all",
+    "release": "release-it -n&&gatsby build&&npm run build:all",
     "build:all": "build -w --publish always&&build -ml&&npm run format&&yarn upgrade -L&&yarn",
     "proxy": "node dev-proxy",
     "front": "gatsby develop",
@@ -49,7 +49,8 @@
     "desktop": "electron .",
     "postinstall": "build install-app-deps",
     "format": "prettier --write \"src/**/*.js\"",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
+    "prestart": "node -e console.log('#'.repeat(80)+'\\n\\n','docs:'+process.env.npm_package_homepage,'\\n\\n'+'#'.repeat(80))"
   },
   "dependencies": {
     "electron-updater": "^4.0.6",
@@ -57,6 +58,8 @@
     "source-map-support": "^0.5.10"
   },
   "devDependencies": {
+    "@commitlint/cli": "^7.5.2",
+    "@commitlint/config-angular": "^7.5.0",
     "antd": "^3.12.4",
     "babel-plugin-import": "^1.11.0",
     "concurrently": "^4.1.0",
@@ -69,6 +72,7 @@
     "electron-devtools-installer": "^2.2.4",
     "gatsby": "^2.0.93",
     "http-proxy": "^1.17.0",
+    "husky": "^1.3.1",
     "nodemon": "^1.18.9",
     "prettier": "^1.16.1",
     "prop-types": "^15.6.2",
@@ -77,9 +81,13 @@
     "react-redux": "^6.0.0",
     "release-it": "^10.1.0",
     "request": "^2.88.0",
-    "standard-version": "^4.4.0",
     "trash-cli": "^1.4.0",
     "wait-on": "^1.1.0"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   },
   "release-it": {
     "increment": "conventional:angular",
