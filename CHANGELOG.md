@@ -1,3 +1,17 @@
+# [1.0.0](https://github.com/canfeit/testwa-recorder/compare/v0.2.6...v1.0.0) (2019-02-19)
+
+
+### Features
+
+* 新功能 ([771cbb9](https://github.com/canfeit/testwa-recorder/commit/771cbb9))
+
+
+### BREAKING CHANGES
+
+* u
+
+
+
 ## [0.2.6](https://github.com/canfeit/testwa-recorder/compare/v0.2.5...v0.2.6) (2019-02-19)
 
 
