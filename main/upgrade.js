@@ -1,8 +1,11 @@
 console.log('自动更新模块')
 const { autoUpdater } = require('electron-updater')
 const { Menu, app } = require('electron')
+const log = require('electron-log')
+log.transports.file.level = 'info'
+autoUpdater.logger = log
 app.setAppUserModelId('com.testwa.desktop')
-app.setAsDefaultProtocolClient('testwaDesktop')
+app.setAsDefaultProtocolClient('testwaGen')
 const upgradeItems = [
   Menu.getApplicationMenu().getMenuItemById('isLatest'),
   Menu.getApplicationMenu().getMenuItemById('downloadingUpdate'),
