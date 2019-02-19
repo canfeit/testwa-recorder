@@ -2,7 +2,7 @@
   "name": "testwa-recorder",
   "private": true,
   "description": "Testwa recorder",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "author": "canfei <canfeit@qq.com>",
   "homepage": "https://github.com/canfeit/testwa-recorder#readme",
   "keywords": [
@@ -107,7 +107,8 @@
     },
     "git": {
       "commitArgs": "--no-verify",
-      "requireCleanWorkingDir": false
+      "requireCleanWorkingDir": false,
+      "tagName": "v${version}"
     }
   }
 }
