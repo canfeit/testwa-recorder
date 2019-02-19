@@ -1,3 +1,12 @@
+# [1.3.0](https://github.com/canfeit/testwa-recorder/compare/v1.2.0...v1.3.0) (2019-02-19)
+
+
+### Features
+
+* 新功能 ([a428d00](https://github.com/canfeit/testwa-recorder/commit/a428d00))
+
+
+
 # [1.2.0](https://github.com/canfeit/testwa-recorder/compare/v1.1.0...v1.2.0) (2019-02-19)
 
 
