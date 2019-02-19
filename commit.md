@@ -2,6 +2,8 @@
 
 ## commit 规范
 
+###demo
+
 ```text
 <type><(scope)>:空格<subject>
 // 空一行
@@ -10,10 +12,22 @@
 <footer>
 ```
 
+###revert
+
 ```text
 revert: 被还原的commit的header
 
 This reverts commit <hash>.
+```
+
+###主版本
+
+```text
+feat: 新功能
+
+描述
+
+BREAKING CHANGE
 ```
 
 ### type
