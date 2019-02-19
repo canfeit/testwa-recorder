@@ -42,7 +42,7 @@
     "dir": "trash .cache dist public&&gatsby build&&npm run build -- -c.asar=false",
     "build": "build --dir",
     "release": "release-it -n&&gatsby build&&npm run build:all",
-    "build:all": "build -w --publish always&&build -ml&&npm run format&&yarn upgrade -L&&yarn",
+    "build:all": "build -w --publish always&&build -ml --publish always&&npm run format&&yarn upgrade -L&&yarn",
     "proxy": "node dev-proxy",
     "front": "gatsby develop",
     "server": "cd server&&cross-env testwa_port=7000 nodemon --experimental-modules .",
