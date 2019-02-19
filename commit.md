@@ -2,8 +2,6 @@
 
 ## commit 规范
 
-###demo
-
 ```text
 <type><(scope)>:空格<subject>
 // 空一行
@@ -24,8 +22,10 @@ This reverts commit <hash>.
 
 ```text
 feat: 新功能
-描述
+
 BREAKING CHANGE:
+
+描述
 ```
 
 ### type
@@ -62,7 +62,7 @@ commit 的详细描述，可以分成多行。
 
 ```text
 1.不兼容变动:如果当前代码与上一个版本不兼容，则 Footer 部分以BREAKING CHANGE开头，后面是对变动的描述、以及变动理由和迁移方法。
-BREAKING CHANGE
+BREAKING CHANGE:
 两个空行
 详细描述主版本
 2.关联或关闭 Issue:如果当前 commit 针对某个issue，那么可以在 Footer 部分关闭这个 issue 。
