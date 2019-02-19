@@ -1,3 +1,17 @@
+# [4.0.0](https://github.com/canfeit/testwa-recorder/compare/v3.0.0...v4.0.0) (2019-02-19)
+
+
+### Features
+
+* 新功能 ([7afe657](https://github.com/canfeit/testwa-recorder/commit/7afe657))
+
+
+### BREAKING CHANGES
+
+* 
+
+
+
 # [3.0.0](https://github.com/canfeit/testwa-recorder/compare/v2.0.0...v3.0.0) (2019-02-19)
 
 
