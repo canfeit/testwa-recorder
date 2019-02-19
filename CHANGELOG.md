@@ -1,3 +1,7 @@
+## [5.0.1](https://github.com/canfeit/testwa-recorder/compare/v5.0.0...v5.0.1) (2019-02-19)
+
+
+
 # [5.0.0](https://github.com/canfeit/testwa-recorder/compare/v4.0.0...v5.0.0) (2019-02-19)
 
 
