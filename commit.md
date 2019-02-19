@@ -28,8 +28,6 @@ feat: 新功能
 描述
 
 BREAKING CHANGE:
-
-u
 ```
 
 ### type
