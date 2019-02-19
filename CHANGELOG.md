@@ -1,3 +1,12 @@
+# [1.2.0](https://github.com/canfeit/testwa-recorder/compare/v1.1.0...v1.2.0) (2019-02-19)
+
+
+### Features
+
+* 新功能 ([eafa2d3](https://github.com/canfeit/testwa-recorder/commit/eafa2d3))
+
+
+
 # [1.1.0](https://github.com/canfeit/testwa-recorder/compare/v1.0.0...v1.1.0) (2019-02-19)
 
 
