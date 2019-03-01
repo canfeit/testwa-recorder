@@ -39,8 +39,7 @@
   "main": "main/index.js",
   "scripts": {
     "start": "concurrently \"npm run front\" \"npm run server\" \"npm run proxy\" \"wait-on http://localhost:8000 && npm run desktop\"",
-    "dir": "trash .cache dist public&&gatsby build&&npm run build -- -c.asar=false",
-    "build": "build --dir",
+    "dir": "trash .cache dist public&&gatsby build&&build --dir -c.asar=false",
     "release": "release-it -n&&gatsby build&&npm run build:all",
     "build:all": "build -w --publish always&&build -ml --publish always&&npm run format&&yarn upgrade -L&&yarn",
     "proxy": "node dev-proxy",
