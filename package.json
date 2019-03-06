@@ -45,7 +45,7 @@
     "proxy": "node dev-proxy",
     "front": "gatsby develop",
     "server": "cd server&&cross-env testwa_port=7000 nodemon --experimental-modules .",
-    "desktop": "electron .",
+    "desktop": "concurrently \"electron .\" \"cd src&&nw .\"",
     "postinstall": "build install-app-deps",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
