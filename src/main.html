@@ -5,6 +5,11 @@
   </head>
   <body>
     <script>
+      document.write('You are running on ', require('os').platform())
+      console.log(require('os').platform())
+      setTimeout(function() {
+        console.log(this, require('os').platform())
+      })
       var menu = new nw.Menu({ type: 'menubar' })
       var submenu = new nw.Menu()
       submenu.append(new nw.MenuItem({ label: 'Item A' }))
@@ -16,7 +21,7 @@
         })
       )
       nw.Window.get().menu = menu
-      window.location.href = 'http://localhost:8000'
+      // window.location.href = 'http://localhost:8000'
     </script>
   </body>
 </html>
