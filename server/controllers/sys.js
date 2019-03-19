@@ -36,4 +36,5 @@ exports.info = (req, res) => {
       format(mem.rss)
   )
   console.log('已运行:', sec2date(os.uptime()))
+  console.log(os, process)
 }
